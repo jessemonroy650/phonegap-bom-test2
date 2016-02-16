@@ -12,6 +12,10 @@ var app = {
         } else if (device.platform == 'Android') {
             // adjust font-size of element id'd 'uuid'
             document.getElementById('uuid').style.fontSize = 'medium';
+            // Get rid of 300ms delay 
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body); 
+            }, false);
             // Exit on [exit] button tap.
             document.getElementById('exitApp').addEventListener('click', function() {
                 navigator.app.exitApp();
@@ -96,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // This is truthy, not absolute.
     if ( v == 'X11' ) {
         document.getElementById('isbrowser').innerHTML = v;
+        // This needs to be global so other modules can see it.
         device = {platform:'browser'};
         app.onDeviceReady();
     } else {

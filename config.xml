@@ -5,7 +5,7 @@
         version     = "1.0.0"
         versionCode = "100" > <!-- versionCode is optional and Android only -->
         <!-- Tool Set Version -->        
-        <preference name='phonegap-version' value='cli-5.2.0' />
+        <preference name='phonegap-version' value='cli-6.0.0' />
 
         <name>Phonegap BOM Test</name>
         <description>Phonegap BOM Test</description>
@@ -16,8 +16,8 @@
         <!-- Target Platforms -->
         <!-- Remove to test which platforms build by default. -->
         <platform name="android" />
-        <!-- <platform name="ios" />
-        <platform name="winphone" /> -->
+        <platform name="ios" />
+        <!-- <platform name="winphone" /> -->
 
         <!-- App requested permission -->
         <preference name="permissions" value="none"/>
