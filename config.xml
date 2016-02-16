@@ -29,7 +29,7 @@
 
         <!-- WHITELIST * WHITELIST * WHITELIST -->
         <allow-navigation href="http://www.quirksmode.org/*" />
-        <!-- <allow-intent href="http://www.quirksmode.org/*" /> -->
+        <allow-intent href="https://github.com/jessemonroy650/phonegap-bom-test2/*" />
         <!-- <access origin="http://www.quirksmode.org/*" /> --> <!-- Required for iOS9 -->
 
     </widget>

@@ -10,17 +10,22 @@ var app = {
             // deals with post-iOS-7 change that covers the status bar 
             document.body.style.marginTop = "20px";
         } else if (device.platform == 'Android') {
-            // adjust font-size of element id'd 'uuid'
-            document.getElementById('uuid').style.fontSize = 'medium';
             // Get rid of 300ms delay 
             document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body); 
             }, false);
+            // Exit on [image] icon tap.
+            document.getElementById('appIcon').addEventListener('click', function() {
+                window.open(sourceURL, _system);
+            });
             // Exit on [exit] button tap.
             document.getElementById('exitApp').addEventListener('click', function() {
                 navigator.app.exitApp();
             });
         }
+        // adjust font-size of element id'd 'uuid'
+        document.getElementById('uuid').style.fontSize = 'medium';
+        //
         screenStuff();
         navigatorStuff();
         jqueryStuff();
@@ -92,6 +97,9 @@ function phonegapStuff() {
 function isBrowser(obj, string) {
     return obj.match(string);
 }
+
+// URL to source code
+var sourceURL = 'https://github.com/jessemonroy650/phonegap-bom-test2';
 
 document.addEventListener('DOMContentLoaded', function() {
     
