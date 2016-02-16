@@ -14,10 +14,6 @@ var app = {
             document.addEventListener('DOMContentLoaded', function() {
                 FastClick.attach(document.body); 
             }, false);
-            // Exit on [image] icon tap.
-            document.getElementById('appIcon').addEventListener('click', function() {
-                window.open(sourceURL, _system);
-            });
             // Exit on [exit] button tap.
             document.getElementById('exitApp').addEventListener('click', function() {
                 navigator.app.exitApp();
@@ -98,9 +94,9 @@ function isBrowser(obj, string) {
     return obj.match(string);
 }
 
-// URL to source code
-var sourceURL = 'https://github.com/jessemonroy650/phonegap-bom-test2';
-
+//
+//    Entry Point
+//
 document.addEventListener('DOMContentLoaded', function() {
     
     var v = isBrowser(navigator.appVersion, 'X11');
