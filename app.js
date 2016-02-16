@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('isbrowser').innerHTML = v;
         // This needs to be global so other modules can see it.
         device = {platform:'browser'};
+        // Force the function.
         app.onDeviceReady();
     } else {
         document.getElementById('isbrowser').innerHTML = 'not X11';
