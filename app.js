@@ -1,17 +1,18 @@
 //
-//
+//  Date: 2016-02-15
 //
 var app = {
     onDeviceReady : function() {
-        // console.log('onDeviceReady');
         document.getElementById('isstate').innerHTML = 'onDeviceReady';
         if (device.platform == "iOS") {
             // hide Exit button. They don't have one on iOS devices.
             document.getElementById('exitApp').classList.add("hidden");
-            /* deals with post-iOS-7 change that covers the status bar */
+            // deals with post-iOS-7 change that covers the status bar 
             document.body.style.marginTop = "20px";
         } else if (device.platform == 'Android') {
+            // adjust font-size of element id'd 'uuid'
             document.getElementById('uuid').style.fontSize = 'medium';
+            // Exit on [exit] button tap.
             document.getElementById('exitApp').addEventListener('click', function() {
                 navigator.app.exitApp();
             });
@@ -22,6 +23,9 @@ var app = {
         document.getElementById('isstate').innerHTML = 'mid onDeviceReady';
         if (device.platform != 'browser') {
             phonegapStuff();
+        } else {
+            document.getElementById('deviceInformation').classList.add("hidden");
+            document.getElementById('deviceInformationNot').classList.remove("hidden");
         }
         document.getElementById('isstate').innerHTML = 'onDeviceReady done.';
     }
@@ -73,6 +77,7 @@ function jqueryStuff() {
 }
 //
 function phonegapStuff() {
+    // A bug in Phonegap does not allow us to use the `id=cordova`
     document.getElementById('acordova').innerHTML = device.cordova;
     document.getElementById('model').innerHTML = device.model;
     document.getElementById('platform').innerHTML = device.platform;
@@ -83,9 +88,6 @@ function phonegapStuff() {
 function isBrowser(obj, string) {
     return obj.match(string);
 }
-
-
-document.addEventListener("deviceready", app.onDeviceReady, false);
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -98,9 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         app.onDeviceReady();
     } else {
         document.getElementById('isbrowser').innerHTML = 'not X11';
-        //console.log('not X11');
         // Wait for PhoneGap to load
-        // app.onDeviceReady();
         document.addEventListener("deviceready", app.onDeviceReady, false);
     }
 });
