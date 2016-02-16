@@ -5,12 +5,12 @@ var app = {
     onDeviceReady : function() {
         // console.log('onDeviceReady');
         document.getElementById('isstate').innerHTML = 'onDeviceReady';
-        if (device.platform === "iOS") {
+        if (device.platform == "iOS") {
             // hide Exit button. They don't have one on iOS devices.
             document.getElementById('exitApp').classList.add("hidden");
             /* deals with post-iOS-7 change that covers the status bar */
             document.body.style.marginTop = "20px";
-        } else if (device.platform === 'Android') {
+        } else if (device.platform == 'Android') {
             document.getElementById('uuid').style.fontSize = 'medium';
             document.getElementById('exitApp').addEventListener('click', function() {
                 navigator.app.exitApp();
@@ -20,7 +20,7 @@ var app = {
         navigatorStuff();
         jqueryStuff();
         document.getElementById('isstate').innerHTML = 'mid onDeviceReady';
-        if (device.platform !== 'browser') {
+        if (device.platform != 'browser') {
             phonegapStuff();
         }
         document.getElementById('isstate').innerHTML = 'onDeviceReady done.';
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //
     // This is truthy, not absolute.
     if ( v == 'X11' ) {
-       document.getElementById('isbrowser').innerHTML = v;
+        document.getElementById('isbrowser').innerHTML = v;
         device = {platform:'browser'};
         app.onDeviceReady();
     } else {
