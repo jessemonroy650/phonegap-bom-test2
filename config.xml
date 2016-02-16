@@ -28,8 +28,8 @@
         <plugin name="cordova-plugin-whitelist"      source="npm" spec="1.0.0" /> <!-- NEW -->
 
         <!-- WHITELIST * WHITELIST * WHITELIST -->
-        <allow-navigation href="http://www.quirksmode.org/" />
-        <!-- <allow-intent href="*" /> -->
-        <!-- <access origin="http://www.quirksmode.org/" /> --> <!-- Required for iOS9 -->
+        <allow-navigation href="*" />
+        <allow-intent href="*" /> -->
+        <access origin="*" /> <!-- Required for iOS9 -->
 
     </widget>
