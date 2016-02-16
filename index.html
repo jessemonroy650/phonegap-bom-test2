@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Phonegap BOM Test</title>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;style-src * 'self' 'unsafe-inline' 'unsafe-eval';script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
+    <link rel="stylesheet" href="buttons.css" />
+    <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+<div id=header class="button button-block button-large">
+    <img align=left src=favicon-48x48.png>
+    Phonegap BOM Test
+    <button id=exitApp class="button button-pill button-primary button-large">Exit</button>
+</div>
+
+<h2>Browser Reporting</h2>
+
+<p class=spacer />
+navigator.appVersion: <span id=isbrowser>false</span>
+
+<p class=spacer />
+isstate: <span id=isstate>none yet</span>
+
+<p class=spacer />
+<div id=screenStuff>Not Loaded</div>
+
+<p class=spacer />
+<div id=navigatorStuff>Not Loaded</div>
+
+<h2>JQuery Reporting</h2>
+
+<div id=jqueryStuff>Not Loaded</div>
+
+<h2>Phonegap Reporting</h2>
+
+<div id=deviceInformation>
+    <div id=c class="button button-block button-royal">cordova <span id=acordova></span></div>
+    <div id=m class="button button-block button-action">model <span id=model></span></div>
+    <div id=p class="button button-block button-primary">platform <span id=platform></span></div>
+    <div id=u class="button button-block button-caution">UUID</div>
+    <div id=u class="button button-block button-caution"><span id=uuid class=uuid>uuid</span></div>
+    <div id=v class="button button-block button-highlight">Version <span id=version>version</span></div>
+</div>
+
+<h2>Reference</h2>
+
+<dl>
+<dt> Mobile
+<dd> <a href=http://www.quirksmode.org/mobile/>http://www.quirksmode.org/mobile/</a>
+
+<dt> Screen Size tests
+<dd> <a href=http://www.quirksmode.org/m/tests/widthtest.html>http://www.quirksmode.org/m/tests/widthtest.html</a>
+
+<dt> test of media queries
+<dd> <a href=http://www.quirksmode.org/m/tests/mediaqueries.html>http://www.quirksmode.org/m/tests/mediaqueries.html</a>
+
+<dt> Browser compatibility &mdash; viewports
+<dd> <a href=http://www.quirksmode.org/mobile/tableViewport.html>http://www.quirksmode.org/mobile/tableViewport.html</a>
+
+<dt> A tale of two viewports
+<dd> <a href=http://www.quirksmode.org/mobile/viewports.html>http://www.quirksmode.org/mobile/viewports.html</a>
+<dd> <a href=http://www.quirksmode.org/mobile/viewports2.html>http://www.quirksmode.org/mobile/viewports2.html</a>
+
+</dl>
+
+<div class="copyright" >
+    <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
+</div>
+    <!-- <script type="text/javascript" src="jquery-1.7.2.min.js"></script> -->
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script>
+    document.addEventListener("deviceready", onDeviceReady, false);
+    </script>
+</body>
+</html>

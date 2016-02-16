@@ -1,2 +1,2 @@
-# phonegap-bom-test2
+# phonegap-bom-test
 Phonegap test of bom and webview

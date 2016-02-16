@@ -1,0 +1,22 @@
+body {margin:0px;font-size:medium;box-sizing:border-box;}
+p {margin:0;padding:0.2em;}
+a {text-decoration:none;}
+
+#header  {margin:0;padding:0;}
+#exitApp {margin:0em;float:right;}
+#screenStuff {margin:0.2em;}
+#navigatorStuff {margin:0.2em;}
+
+.hidden {visibility:collapse;display:none;}
+.expose {visibility:visible;display:block;} /* Here for completeness only. */
+.uuid {font-size:small;}
+.copyright {padding:5px;font-style:italic;font-size:small;}
+.spacer {margin:0.5em;}
+
+/* background colors */
+.r {background-color:hsl(0,25%,75%);}   /* pastel-red */
+.g {background-color:hsl(135,25%,75%);} /* pastel-gree */
+.b {background-color:hsl(225,25%,75%);} /* pastel-blue */
+.a {background-color:hsl(45,25%,75%);}  /* pastel-gold */
+.p {background-color:hsl(270,25%,75%);} /* pastel-purple */
+
