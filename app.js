@@ -2,7 +2,7 @@
 //  Date: 2016-02-15
 //
 var app = {
-    version : '0.9.1',
+    version : '0.9.2',
     onDeviceReady : function() {
         document.getElementById('isstate').innerHTML = 'onDeviceReady';
         if (device.platform == "iOS") {
@@ -88,35 +88,47 @@ function phonegapStuff() {
     document.getElementById('version').innerHTML = device.version;
 }
 //
-function isBrowser(obj, string) {
-    return obj.match(string);
+function isKnownDevice(obj) {
+    var validPGDevices = [
+        '/arm7/i',
+        '/iPad/i',
+        '/iPhone/i',
+        '/iPod/i'
+    ];
+    var i = 0, result = -1, answer = false;
+    for (i = 0; i < validPGDevices.length; i++){
+        result = obj.search(validPGDevices[i]);
+        if (result != -1) { answer = validPGDevices[i]; break; }
+    }
+
+    return answer;
 }
 
 //
 //    Entry Point
 //
 document.addEventListener('DOMContentLoaded', function() {
-    var v = "";
+    var d = "";
 
     document.getElementById('appVersion').innerHTML = app.version;
+    document.getElementById('navVersion').innerHTML = navigator.appVersion;
+    d = isKnownDevice(navigator.appVersion);
+    document.getElementById('isKnownDevice').innerHTML = d;
+
     // Get the standard stuff
     screenStuff();
     navigatorStuff();
     jqueryStuff();
 
-    v = isBrowser(navigator.appVersion, 'X11');
-    //
-    // This is truthy, not absolute.
-    if ( v == 'X11' ) {
-        document.getElementById('isbrowser').innerHTML = v;
+    // Is it a device we know?
+    if ( d === true ) {
+        // Wait for PhoneGap to load
+        document.addEventListener("deviceready", app.onDeviceReady, false);
+    } else {
         // This needs to be global so other modules can see it.
         device = {platform:'browser'};
         // Force the function.
         app.onDeviceReady();
-    } else {
-        document.getElementById('isbrowser').innerHTML = navigator.appVersion;
-        // Wait for PhoneGap to load
-        document.addEventListener("deviceready", app.onDeviceReady, false);
     }
 });
 

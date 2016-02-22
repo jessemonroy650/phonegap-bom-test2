@@ -9,6 +9,7 @@ This app was written with one goal in mind to demonstrate that phonegp is neithe
 
 
 1. How to write a web mobile and mobile app in one code base.
+    - checks `navigator.appVersion` for known devices.
 2. Get the webview information on the `screen` - like width, height, etc.
 3. Get the webview information about the `navigator` - like version, userAgent, etc.
 4. Get the JQuery information about the `window` - like width, height, etc.
