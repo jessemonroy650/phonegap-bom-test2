@@ -2,6 +2,7 @@
 //  Date: 2016-02-15
 //
 var app = {
+    version : '0.9.1',
     onDeviceReady : function() {
         document.getElementById('isstate').innerHTML = 'onDeviceReady';
         if (device.platform == "iOS") {
@@ -22,9 +23,6 @@ var app = {
         // adjust font-size of element id'd 'uuid'
         document.getElementById('uuid').style.fontSize = 'medium';
         //
-        screenStuff();
-        navigatorStuff();
-        jqueryStuff();
         document.getElementById('isstate').innerHTML = 'mid onDeviceReady';
         if (device.platform != 'browser') {
             phonegapStuff();
@@ -98,8 +96,15 @@ function isBrowser(obj, string) {
 //    Entry Point
 //
 document.addEventListener('DOMContentLoaded', function() {
-    
-    var v = isBrowser(navigator.appVersion, 'X11');
+    var v = "";
+
+    document.getElementById('appVersion').innerHTML = app.version;
+    // Get the standard stuff
+    screenStuff();
+    navigatorStuff();
+    jqueryStuff();
+
+    v = isBrowser(navigator.appVersion, 'X11');
     //
     // This is truthy, not absolute.
     if ( v == 'X11' ) {
@@ -109,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Force the function.
         app.onDeviceReady();
     } else {
-        document.getElementById('isbrowser').innerHTML = 'not X11';
+        document.getElementById('isbrowser').innerHTML = navigator.appVersion;
         // Wait for PhoneGap to load
         document.addEventListener("deviceready", app.onDeviceReady, false);
     }

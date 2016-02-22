@@ -3,6 +3,10 @@ Phonegap BOM (Browser Object Model) and webview test
 
 Date: 2016-02-15
 
+This app was written with one goal in mind to demonstrate that phonegp is neither a webserver nor a webbrowser. This is a common misconception.
+
+
+
 
 1. How to write a web mobile and mobile app in one code base.
 2. Get the webview information on the `screen` - like width, height, etc.
