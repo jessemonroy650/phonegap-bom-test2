@@ -108,8 +108,6 @@ function isKnownDevice(obj) {
 //
 //    Entry Point
 //
-// - https://videlais.com/2014/08/21/lessons-learned-from-detecting-apache-cordova/
-//
 document.addEventListener('DOMContentLoaded', function() {
     var d = "";
 
@@ -117,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('navVersion').innerHTML = navigator.appVersion;
     d = isKnownDevice(navigator.platform);
     document.getElementById('isKnownDevice').innerHTML = d;
+    // - https://videlais.com/2014/08/21/lessons-learned-from-detecting-apache-cordova/
     var isCordovaApp = (typeof window.cordova !== "undefined");
     document.getElementById('isCordovaApp').innerHTML = isCordovaApp;
 
@@ -136,4 +135,3 @@ document.addEventListener('DOMContentLoaded', function() {
         app.onDeviceReady();
     }
 });
-
