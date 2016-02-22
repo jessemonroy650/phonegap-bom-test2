@@ -90,14 +90,15 @@ function phonegapStuff() {
 //
 function isKnownDevice(obj) {
     var validPGDevices = [
-        '/arm7/i',
-        '/iPad/i',
-        '/iPhone/i',
-        '/iPod/i'
+        'armv7',
+        'iPad',
+        'iPhone',
+        'iPod'
     ];
     var i = 0, result = -1, answer = false;
     for (i = 0; i < validPGDevices.length; i++){
         result = obj.search(validPGDevices[i]);
+        //console.log(obj, validPGDevices[i], result);
         if (result != -1) { answer = validPGDevices[i]; break; }
     }
 
@@ -107,13 +108,17 @@ function isKnownDevice(obj) {
 //
 //    Entry Point
 //
+// - https://videlais.com/2014/08/21/lessons-learned-from-detecting-apache-cordova/
+//
 document.addEventListener('DOMContentLoaded', function() {
     var d = "";
 
     document.getElementById('appVersion').innerHTML = app.version;
     document.getElementById('navVersion').innerHTML = navigator.appVersion;
-    d = isKnownDevice(navigator.appVersion);
+    d = isKnownDevice(navigator.platform);
     document.getElementById('isKnownDevice').innerHTML = d;
+    var isCordovaApp = (typeof window.cordova !== "undefined");
+    document.getElementById('isCordovaApp').innerHTML = isCordovaApp;
 
     // Get the standard stuff
     screenStuff();
@@ -121,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
     jqueryStuff();
 
     // Is it a device we know?
-    if ( d === true ) {
+    if ( isCordovaApp === true ) {
         // Wait for PhoneGap to load
         document.addEventListener("deviceready", app.onDeviceReady, false);
     } else {
